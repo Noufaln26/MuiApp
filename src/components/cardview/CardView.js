@@ -6,7 +6,12 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 
-export default function CardView({bgValue}) {
+export default function CardView() {
+
+  const randomCOlor=()=>{
+    
+  }
+  
    
     
   return (
