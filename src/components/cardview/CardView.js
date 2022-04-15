@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import { CardActionArea, Grid } from "@mui/material";
 import Divider from "@mui/material/Divider";
 import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
 import IconButton from "@mui/material/IconButton";
@@ -11,6 +11,9 @@ import WcIcon from "@mui/icons-material/Wc";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import PhoneAndroidRoundedIcon from "@mui/icons-material/PhoneAndroidRounded";
 import PhoneAndroidRounded from "@mui/icons-material/PhoneAndroidRounded";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import Container from '@mui/material/Container';
 
 export default function CardView({ dataItem }) {
   console.log(dataItem);
@@ -26,9 +29,10 @@ export default function CardView({ dataItem }) {
         boxShadow: "5",
       }}
     >
-      <CardActionArea sx={{ marginTop: "10px" }}>
+     <Container sx={{marginTop:'10px'}}>
         <CardMedia
           style={{
+            mt:5,
             position: "relative",
             borderRadius: "50%",
             width: "260px",
@@ -37,12 +41,13 @@ export default function CardView({ dataItem }) {
             background:
               "linear-gradient(to right, rgb(0, 121, 145), rgb(120, 255, 214))",
           }}
+         
           component="img"
           height="240"
           width="auto"
           image={dataItem.picture.large}
           alt="cat"
-        />
+        /> </Container>
         <CardContent sx={{ color: "white" }}>
           <Typography
             gutterBottom
@@ -77,10 +82,30 @@ export default function CardView({ dataItem }) {
             {dataItem.gender}
           </Typography>
           <Divider />
-          {/*Add buttnos*/ }
+          {/*Add buttnos*/}
+          <CardActionArea sx={{ marginTop: "10px" }}>
+          <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="flex-end"
+          >
+           
+            <Grid item key={dataItem.id} xs={12} md={3} sm={6}>
+              <IconButton aria-label="delete">
+                <DeleteIcon color="white" />
+              </IconButton>
+            </Grid>
+            <Grid item key={dataItem.id} xs={12} md={3} sm={6}></Grid>
+
+            <IconButton aria-label="delete">
+              <EditIcon color="white" />
+            </IconButton>
+          </Grid>
+          </CardActionArea>
           
         </CardContent>
-      </CardActionArea>
+     
     </Card>
   );
 }

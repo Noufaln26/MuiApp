@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
@@ -12,10 +12,10 @@ import Grid from "@mui/material/Grid";
 import Card from "../cardview/Card";
 import ListView from "../listView/ListView";
 
-import Button from '@mui/material/Button';
-
+import Button from "@mui/material/Button";
 
 //this component will host loader spinner , filter , and toggle
+//filter needs to be added
 
 function Home({ data }) {
   //console.log(data)
@@ -29,8 +29,6 @@ function Home({ data }) {
     setView(!view);
   };
   const customSearch = (rows) => {
-    console.log(rows);
-
     return rows.filter((row) =>
       columns.some(
         (column) =>
@@ -72,12 +70,21 @@ function Home({ data }) {
         </Grid>
         <Grid item xs={12} md={4} sm={6}>
           {/*Toggle view */}
-          <Button onClick={handleViewChange} variant="outlined" color="success" endIcon={view ?<GridViewIcon/> : <TableRowsIcon/>}>
-            {view? "CHange to List" : "Change to Card"}
+          <Button
+            onClick={handleViewChange}
+            variant="outlined"
+            color="success"
+            endIcon={view ? <GridViewIcon /> : <TableRowsIcon />}
+          >
+            {view ? "CHange to List" : "Change to Card"}
           </Button>
         </Grid>
       </Grid>
-      {view ? <Card data={customSearch(data)} /> : <ListView data={customSearch(data)} />}
+      {view ? (
+        <Card data={customSearch(data)} />
+      ) : (
+        <ListView data={customSearch(data)} />
+      )}
     </>
   );
 }
