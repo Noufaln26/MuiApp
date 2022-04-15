@@ -1,21 +1,15 @@
 import * as React from "react";
 
-
 import Grid from "@mui/material/Grid";
 import CardView from "./CardView";
-const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9,10];
-function Card() {
-   
-  return (
-   
-      
-    <Grid container spacing={2} justifyContent="center">
-      {arr.map((item,index) => (
-         
-    
-        <Grid item key={item} xs={12} md={3} sm={6} >
 
-          <CardView />
+
+function Card({data}) {
+  return (
+    <Grid container spacing={2} justifyContent="center">
+      {data.map((dataItem) => (
+        <Grid item key={dataItem.id} xs={12} md={3} sm={6}>
+          <CardView dataItem={dataItem}/>
         </Grid>
       ))}
     </Grid>
