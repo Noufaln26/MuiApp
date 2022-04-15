@@ -7,9 +7,7 @@ import { CardActionArea } from '@mui/material';
 
 
 export default function CardView() {
-
   
-   
     
   return (
       
