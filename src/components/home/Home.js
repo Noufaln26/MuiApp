@@ -6,8 +6,10 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import GridViewIcon from "@mui/icons-material/GridView";
 import TableRowsIcon from "@mui/icons-material/TableRows";
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
-import { Container } from "@mui/material";
+import { Badge, Chip, Container, Divider, Stack, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Card from "../cardview/Card";
 import ListView from "../listView/ListView";
@@ -18,12 +20,29 @@ import Button from "@mui/material/Button";
 //filter needs to be added
 
 function Home({ data }) {
-  //console.log(data)
-
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const [view, setView] = useState(true);
   const [q, setQ] = useState("");
-  const [filterOptions, setFilterOptions] = useState([]);
+  const [filterOptions, setFilterOptions] = useState(["name"]);
+  const [options, setoptions] = useState(["name","gender","email","cell"])
   const columns = data[0] && Object.keys(data[0]);
+  const open = Boolean(anchorEl);
+  const handleChipClick=(value)=>{
+    console.log("Move the chip to contained class")
+    setFilterOptions([...filterOptions,value])
+
+  }
+  const handleChipDelete=(value)=>{
+    console.log("Deleted Chips")
+    
+
+  }
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const handleViewChange = (event) => {
     setView(!view);
@@ -64,9 +83,54 @@ function Home({ data }) {
           </Container>
         </Grid>
         <Grid item xs={12} md={4} sm={6}>
-          <IconButton aria-label="FilterListRoundedIcon">
-            <FilterListRoundedIcon />
+          <IconButton
+            ria-label="more"
+            id="long-button"
+            aria-controls={open ? "long-menu" : undefined}
+            aria-expanded={open ? "true" : undefined}
+            aria-haspopup="true"
+            onClick={handleClick}
+          >
+            <Badge badgeContent={1} color="secondary" max={4} >
+            <FilterListRoundedIcon /></Badge>
           </IconButton>
+          <Menu
+        id="long-menu"
+        MenuListProps={{
+          'aria-labelledby': 'long-button',
+        }}
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        PaperProps={{
+          style: {
+            maxHeight: 48 * 4.5,
+            width: 'fit-content',
+          },
+        }}
+      >
+        <Stack direction="row">
+        {filterOptions ? filterOptions.map((option) => (
+          
+          <MenuItem key={option} >
+
+           <Chip label={option} variant="contained" color="success" onDelete={handleChipDelete} />
+          
+          </MenuItem>
+        )) : <Typography variant="subtitle2" component="h2" ml={2}>No Selected filters</Typography>}
+        </Stack>
+        <Divider/>
+        <Stack direction="row">
+        {options.map((option) => (
+          
+          <MenuItem key={option} >
+
+           <Chip label={option} variant="outlined" color="success" />
+          
+          </MenuItem>
+          
+        ))}</Stack>
+      </Menu>
         </Grid>
         <Grid item xs={12} md={4} sm={6}>
           {/*Toggle view */}
