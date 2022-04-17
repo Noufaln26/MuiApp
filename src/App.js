@@ -4,9 +4,10 @@ import NavBar from './components/AppBar/NavBar';
 import { Routes, Route } from "react-router-dom";
 import AddContactForm from './components/Webform/AddContactForm';
 import Home from './components/home/Home';
-import BottomAddButton from './components/AppBar/BottomAddButton';
+
 import axios from 'axios';
 import LoaderSpinner from './components/features/LoaderSpinner';
+
 
 const PAGE_NUMBER = 1;
 
@@ -29,7 +30,7 @@ function App() {
 
   //loading data using axios api
   useEffect(() => {
-    const url = "https://randomuser.me/api/?results=25";
+    const url = "https://randomuser.me/api/?results=10";
     const getItems = async () => {
       const result = await axios(url);
       setData((oldData) => [...oldData, ...result.data.results]);
@@ -49,9 +50,10 @@ function App() {
     <NavBar/>
     <Routes>
         <Route path="/" element= {isLoading ? <LoaderSpinner/> :<Home data={data}/>} />
-        <Route path="/addContact" element={< AddContactForm/>} />
+        <Route path="/addContact" element={<AddContactForm/>} />
     </Routes>
-    <BottomAddButton/>
+   
+ 
 
       </>
 
