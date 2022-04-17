@@ -25,7 +25,7 @@ export default function FormHook() {
     <Box
       display="flex"
       justifyContent="center"
-      alignItems="center"
+      
       minHeight="100vh"
     >
       <FormControl onSubmit={handleSubmit(onSubmit)}>
