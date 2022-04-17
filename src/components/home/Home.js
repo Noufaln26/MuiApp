@@ -25,7 +25,7 @@ import ListView from "../listView/ListView";
 import Button from "@mui/material/Button";
 
 //this component will host loader spinner , filter , and toggle
-//filter needs to be added
+
 
 function Home({ data }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -96,7 +96,6 @@ function Home({ data }) {
               <InputBase
                 sx={{ ml: 1, flex: 1}}
                 placeholder="Search here"
-                inputProps={{ "aria-label": "search here" }}
                 onChange={(e) => setQ(e.target.value)}
               />
               <IconButton sx={{ p: "5px" }} aria-label="search">
@@ -107,11 +106,7 @@ function Home({ data }) {
         </Grid>
         <Grid item xs={6} md={4} sm={6}>
           <IconButton
-            ria-label="more"
-            id="long-button"
-            aria-controls={open ? "long-menu" : undefined}
-            aria-expanded={open ? "true" : undefined}
-            aria-haspopup="true"
+           
             onClick={handleClick}
           >
             <Badge badgeContent={filterOptions.length} color="primary" max={4}>
