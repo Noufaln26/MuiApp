@@ -1,0 +1,23 @@
+{
+  "results": [
+    {
+      "gender": "male",
+      "name": { "title": "Mr", "first": "Liam", "last": "Brown" },
+      "email": "liam.brown@example.com",
+      "login": {
+        "uuid": "a1b21ee7-9910-4b7c-bee2-be7663eb2845"
+     },
+      "dob": { "date": "1993-04-02T05:52:35.504Z", "age": 29 },
+     
+      "phone": "031-297-1523",
+      "cell": "081-383-0546",
+      "id": { "name": "PPS", "value": 3323111 },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/39.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/39.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/39.jpg"
+      }
+      
+    }
+  ]
+}

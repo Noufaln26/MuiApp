@@ -4,15 +4,29 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { CssBaseline } from '@mui/material';
+
+const theme = createTheme({
+  palette: {
+    background: {
+      default: "#4fafe7"
+    }
+  }
+  
+});
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <ThemeProvider theme={theme}>
     <BrowserRouter>
+    <CssBaseline/>
 
     <App />
     </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>
 );
 
