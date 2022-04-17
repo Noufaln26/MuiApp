@@ -114,7 +114,7 @@ function Home({ data }) {
             aria-haspopup="true"
             onClick={handleClick}
           >
-            <Badge badgeContent={filterOptions.length} color="secondary" max={4}>
+            <Badge badgeContent={filterOptions.length} color="primary" max={4}>
               <FilterListRoundedIcon />
             </Badge>
           </IconButton>
@@ -141,7 +141,7 @@ function Home({ data }) {
                     <Chip
                       label={filterOption.Option}
                       variant="contained"
-                      color="success"
+                      sx={{color:"white",backgroundColor:'#3167b6'}}
                       
                       onDelete={e=> handleChipDelete(filterOption)}
                       DeleteIcon={<Done/>}
@@ -163,7 +163,7 @@ function Home({ data }) {
                   <Chip
                     label={op.Option}
                     variant="outlined"
-                    color="success"
+                    color="primary"
                     onClick={e=>handleChipClick(op)}
                   />
                 </MenuItem> 

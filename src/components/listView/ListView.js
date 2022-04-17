@@ -9,12 +9,12 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
-import { red } from "@mui/material/colors";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.secondary.light,
-    color: theme.palette.common.white,
+    backgroundColor: '#1fa1a1d1',
+    color: '#1b3735f0',
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 20,
@@ -35,6 +35,13 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 export default function ListView({ data }) {
   const status=["Male","female"];
   return (
+    <Box
+    margin="15px"
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      minHeight="100vh"
+    >
     <TableContainer component={Paper} sx={{mt:5}}>
       <Table >
         <TableHead>
@@ -69,12 +76,13 @@ export default function ListView({ data }) {
                 {row.registered.age}
               </StyledTableCell>
               <StyledTableCell align="center">
-              {row.gender === 'female' ? <Typography sx={{backgroundColor: "green", borderRadius: "10px"}}>Female</Typography> : <Typography sx={{backgroundColor: "orange",borderRadius:"10px"}} >Male</Typography>}
+              {row.gender === 'female' ? <Typography sx={{backgroundColor: "#55cbbe69", borderRadius: "10px"}}>Female</Typography> : <Typography sx={{backgroundColor: "#317fd3",borderRadius:"10px"}} >Male</Typography>}
               </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
+    </Box>
   );
 }
