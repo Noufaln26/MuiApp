@@ -11,9 +11,10 @@ import { Drawer } from "@mui/material";
 import { useState } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import Tooltip from "@mui/material/Tooltip";
 import Avatar from "@mui/material/Avatar";
 import Container from "@mui/material/Container";
+import HomeIcon from '@mui/icons-material/Home';
+
 
 const pages = ["Add Contact"];
 const settings = ["Edit"];
@@ -41,7 +42,8 @@ export default function NavBar() {
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
               <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-                <Avatar sx={{backgroundColor: 'white'}}>CM</Avatar>
+               
+                <HomeIcon fontSize="large" sx={{borderRadius:"50%", backgroundColor: "#288899"}} />
               </Link>
             </Typography>
 
